@@ -3,9 +3,10 @@ version: '3.7'
 services:
   rstudio:
     container_name: rstudio-docker
-    image: rstudio-docker
-    build:
-      context: .
+    #image: rocker/rstudio
+    image: jvdneut/rstudio-server-dextermml
+    #build:
+    #  context: .
     restart: unless-stopped
     volumes:
       - ./data/:/home/rstudio/data
