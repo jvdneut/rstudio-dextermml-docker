@@ -1,4 +1,3 @@
 FROM rocker/rstudio
-RUN R -e "install.packages(c('devtools', 'remotes'), repo = '$CRAN'); \
-library(devtools); \
-devtools::install_github('dexter-psychometrics/dexterMML')"
+COPY ./rocker_scripts/install_dexter.sh /rocker_scripts/install_dexter.sh
+RUN /rocker_scripts/install_dexter.sh
