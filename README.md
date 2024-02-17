@@ -15,3 +15,17 @@ PASSWORD=your-password-here
 ```
 
 The `data` sub-folder is shared with the docker image.
+
+## Publish steps
+```sh
+docker build -t jvdneut/rstudio-dextermml-amd64:latest .
+docker push jvdneut/rstudio-dextermml-amd64:latest
+
+docker build -t jvdneut/rstudio-dextermml-arm64:latest .
+docker push jvdneut/rstudio-dextermml-arm64:latest
+
+docker manifest create jvdneut/rstudio-dextermml:latest \
+jvdneut/rstudio-dextermml-amd64 \
+jvdneut/rstudio-dextermml-arm64
+docker manifest push jvdneut/rstudio-dextermml:latest
+```
